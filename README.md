@@ -1,22 +1,33 @@
-# Hi there, I'm Eitan 👋
-Unity Developer · Interactive Multimedia & AI · e/acc
+# Hi, I'm Eitan 👋
 
-## Status
-![Role](https://img.shields.io/badge/Role-%20AI%20Developer-0a84ff?style=flat-square&labelColor=1d1d1f)
-![Focus](https://img.shields.io/badge/Focus-Digital%20Humans%20%7C%20Real--time%20Interaction%20%7C%20Acoustics-8e8e93?style=flat-square&labelColor=1d1d1f)
-![OS](https://img.shields.io/badge/OS-macOS-000000?style=flat-square&logo=apple&logoColor=white&labelColor=1d1d1f)
+**Full-Anything Engineer**
 
-## About Me 👨‍💻
-Currently, I'm a developer at a multimedia exhibition design company 🎨, creating interactive digital experiences for museum exhibits 🏛️ and leading the R&D of AI-powered applications 🚀.
+> I don’t have a stack.  
+> I have subscriptions.
 
-My research is focused on the intersection of real-time graphics and artificial intelligence, including:
-- 🤖 **AI-driven Digital Humans:** Architecting complete, interactive digital human solutions in Unity.
-- 🎤 **Acoustic Solutions:** Developing microphone array pickup solutions and front-end audio processing algorithms.
-- ⚙️ **Core Engine Technologies:** Exploring low-level framework optimizations within Unity.
-- 🧠 **AI Agent Systems:** Building intelligent agents with advanced memory and dynamic prompting capabilities.
+## About
 
-## Tech Stack 🛠️
-[![Skill Icons](https://skillicons.dev/icons?i=cs,python,typescript,html,unity,react,nextjs,nginx,docker,mysql,git,linux,macos)](https://skillicons.dev)
+I build AI systems, realtime interaction, digital humans, demos, and other badly contained ideas.
+
+My main skill: **Vibe Coding**
+
+## 2026 Stack
+
+<p align="center">
+  <img src="https://img.shields.io/badge/OpenAI-000000?style=for-the-badge&logo=openai&logoColor=white" />
+  <img src="https://img.shields.io/badge/Anthropic-191919?style=for-the-badge&logo=anthropic&logoColor=white" />
+  <img src="https://img.shields.io/badge/Google-4285F4?style=for-the-badge&logo=google&logoColor=white" />
+  <img src="https://img.shields.io/badge/Meta-0467DF?style=for-the-badge&logo=meta&logoColor=white" />
+  <img src="https://img.shields.io/badge/DeepSeek-4D6BFE?style=for-the-badge&logo=deepseek&logoColor=white" />
+  <img src="https://img.shields.io/badge/Qwen-FF6A00?style=for-the-badge&logo=alibabacloud&logoColor=white" />
+</p>
+
+## Doctrine
+
+- Ask 5 models
+- Pick 1 answer
+- Ship first
+- Explain later
 
 ## Find Me
 [![GitHub](https://img.shields.io/badge/GitHub-EitanWong-000000?style=for-the-badge&logo=github&logoColor=white&labelColor=1d1d1f)](https://github.com/EitanWong) [![Blog](https://img.shields.io/badge/Blog-eitanwong.github.io-0a84ff?style=for-the-badge&logo=githubpages&logoColor=white&labelColor=1d1d1f)](https://eitanwong.github.io) [![Bilibili](https://img.shields.io/badge/Bilibili-@Eitan-ff4d6d?style=for-the-badge&logo=bilibili&logoColor=white&labelColor=1d1d1f)](https://space.bilibili.com/29687975) [![Linux.do](https://img.shields.io/badge/Linux.do-eitan-FF9800?style=for-the-badge&logo=linux&logoColor=black&labelColor=1d1d1f)](https://linux.do/u/eitan/summary) [![Email](https://img.shields.io/badge/Email-unease--equity--5c@icloud.com-8e8e93?style=for-the-badge&logo=apple&logoColor=white&labelColor=1d1d1f)](mailto:unease-equity-5c@icloud.com)
