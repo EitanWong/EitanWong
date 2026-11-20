@@ -19,8 +19,8 @@ inside an image legible.
 </picture>
 ```
 
-Keep the current 1440 x 552 cover proportions unless intentionally redesigning
-both themes. Render badges crisp at their displayed height (28 or 30 px today).
+Keep the current 960 x 368 cover proportions unless intentionally redesigning
+both themes. Check badge lettering at its displayed height (28 or 30 px today).
 Give meaningful images descriptive alt text; an image that is the only content
 of a link needs alt text that names the destination. Preview the actual GitHub
 layout; not all standard HTML or browser features are available in a README.
@@ -29,18 +29,24 @@ layout; not all standard HTML or browser features are available in a README.
 
 | Asset | Limit |
 | --- | ---: |
-| One banner variant | 20,000 bytes |
-| One badge or contact icon variant | 6,000 bytes |
-| All unique images used by one theme | 50,000 bytes |
+| One banner variant | 6,000 bytes |
+| One badge or contact icon variant | 1,500 bytes |
+| All unique images used by one theme | 13,000 bytes |
 | Root README | 12,000 bytes |
 
-Export only the final WebP versions. Use lossless compression for badges and
-compare lossy cover exports at the displayed size before choosing one. A starting
-point with Google's WebP tools:
+Export from a clean PNG or vector master, not from a previously compressed WebP.
+Keep only the final WebPs in the repository. Compare cover exports at their
+rendered size, including text edges and gradients. For badges, resize to about
+1.5x display height and compare palettes of 16-24 colors without dithering.
+Use lossless WebP for the resulting palette so badge lettering stays sharp.
+Starting settings (adjust to meet the budgets without visible defects):
 
 ```sh
-cwebp -q 88 -m 6 -sharp_yuv -metadata none cover.png -o profile-light.webp
-cwebp -lossless -z 9 -metadata none badge.png -o badge.webp
+cwebp -resize 960 0 -q 44 -m 6 -pass 4 -sharp_yuv -metadata none cover.png -o profile-light.webp
+ffmpeg -i badge.png -filter_complex \
+  '[0:v]scale=-1:45:flags=lanczos,split[a][b];[a]palettegen=max_colors=24[p];[b][p]paletteuse=dither=none' \
+  -frames:v 1 badge-palette.png
+cwebp -lossless -z 9 -metadata none badge-palette.png -o badge.webp
 ```
 
 Keep the Lucide notice with the installed icons. Use relative, case-sensitive
