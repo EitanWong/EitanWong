@@ -3,8 +3,9 @@ import shutil
 import tempfile
 import unittest
 from pathlib import Path
+from unittest.mock import patch
 
-from validate_profile import ROOT, validate
+from validate_profile import BUDGET, ROOT, validate
 
 
 class ProfileValidationTest(unittest.TestCase):
@@ -43,12 +44,26 @@ class ProfileValidationTest(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "fall back to its light source"):
             validate(self.root)
 
-    def test_over_budget_asset(self):
+    def test_over_budget_banner(self):
         banner = next((self.root / "assets" / "banners").glob("*-dark.webp"))
-        with banner.open("ab") as output:
-            output.write(b"\0" * 20_001)
-        with self.assertRaisesRegex(ValueError, r"bytes \(limit 20,000\)"):
+        self.assert_asset_budget(banner, BUDGET["banners"])
+
+    def test_over_budget_badge(self):
+        badge = next((self.root / "assets" / "badges").glob("*.webp"))
+        self.assert_asset_budget(badge, BUDGET["badges"])
+
+    def assert_asset_budget(self, asset, limit):
+        with asset.open("ab") as output:
+            output.write(b"\0" * (limit + 1 - asset.stat().st_size))
+        with self.assertRaisesRegex(ValueError, rf"bytes \(limit {limit:,}\)"):
             validate(self.root)
+
+    def test_over_budget_theme(self):
+        _, totals = validate(self.root)
+        limit = min(totals.values()) - 1
+        with patch("validate_profile.THEME_BUDGET", limit):
+            with self.assertRaisesRegex(ValueError, rf"assets total .*\(limit {limit:,}\)"):
+                validate(self.root)
 
     def test_javascript_is_not_profile_markup(self):
         with self.readme.open("a", encoding="utf-8") as output:

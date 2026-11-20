@@ -10,7 +10,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 IMAGE = re.compile(r"\./assets/(banners|badges)/[a-z0-9]+(?:-[a-z0-9]+)*\.webp")
 FENCE = re.compile(r"^ {0,3}(`{3,}|~{3,})(.*)$")
-BUDGET = {"banners": 20_000, "badges": 6_000}
+BUDGET = {"banners": 6_000, "badges": 1_500}
+THEME_BUDGET = 13_000
 MEDIA = {f"(prefers-color-scheme: {theme})": theme for theme in ("light", "dark")}
 
 
@@ -128,7 +129,8 @@ def validate(root):
     require(banner_count == 1, "The README should show exactly one banner")
     totals = {theme: sum(assets.values()) for theme, assets in used.items()}
     for theme, total in totals.items():
-        require(total <= 50_000, f"{theme.title()} assets total {total:,} bytes (limit 50,000)")
+        require(total <= THEME_BUDGET,
+                f"{theme.title()} assets total {total:,} bytes (limit {THEME_BUDGET:,})")
     expected = set(used["light"]) | set(used["dark"])
     actual = {"./" + path.relative_to(root).as_posix()
               for path in (root / "assets").rglob("*.webp")}
